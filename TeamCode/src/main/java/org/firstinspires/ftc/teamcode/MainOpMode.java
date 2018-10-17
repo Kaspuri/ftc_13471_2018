@@ -46,6 +46,9 @@ public class MainOpMode extends LinearOpMode {
     DcMotor leftmotor;
     DcMotor rightmotor;
 
+    DcMotor botArmMotor;
+    //DcMotor topArmMotor;
+
     CRServo crservo1;
     CRServo crservo2;
 
@@ -55,6 +58,8 @@ public class MainOpMode extends LinearOpMode {
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
 
+        botArmMotor = hardwareMap.dcMotor.get("armmotor");
+        //topArmMotor = hardwareMap.dcMotor.get("elbowmotor");
 
         crservo1 = hardwareMap.crservo.get("crservo1");
         crservo2 = hardwareMap.crservo.get("crservo2");
@@ -77,6 +82,13 @@ public class MainOpMode extends LinearOpMode {
 
         double tgtleftStickY = 0;
         double tgtleftStickX = 0;
+
+
+        double tgtBotMotorPower = 0.5;
+        //double tgtTopMotorPower = 0.5;
+
+        double tgtleftStickY2 = 0;
+       // double tgtrightStickY2 = 0;
 
         while (opModeIsActive()) {
 
@@ -116,6 +128,20 @@ public class MainOpMode extends LinearOpMode {
             }
 
             //---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
+            //move the arm
+
+            tgtleftStickY2 = this.gamepad2.left_stick_y  ;
+            //tgtrightStickY2 = this.gamepad2.right_stick_y;
+
+
+            tgtBotMotorPower = (tgtleftStickY2);
+            //tgtTopMotorPower = (tgtrightStickY2);
+
+
+            botArmMotor.setPower(tgtBotMotorPower/3);
+            //topArmMotor.setPower(tgtTopMotorPower/3);
+
+            //---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
 
             //telemetry
 
@@ -123,6 +149,8 @@ public class MainOpMode extends LinearOpMode {
             telemetry.addData("Right Motor Power", rightmotor.getPower());
             telemetry.addData("CRS1 Power", crservo1.getPower());
             telemetry.addData("CRS2 Power", crservo2.getPower());
+            telemetry.addData("Arm Motor Power", botArmMotor.getPower());
+            //telemetry.addData("Elbow Motor Power", topArmMotor.getPower());
             telemetry.addData("Status", "Running");
             telemetry.update();
         }
