@@ -15,7 +15,7 @@ public class EncoderOpMode extends LinearOpMode{
     public void runOpMode() throws InterruptedException {
         ArmMotor = hardwareMap.dcMotor.get("armmotor");
         ArmMotor.setDirection(DcMotorSimple.Direction.FORWARD);
-        ArmMotor.setMode(DcMotorController.RunMode.RUN_TO_POSITION);
+        ArmMotor.setMode(DcMotorController.a .RUN_TO_POSITION);
         waitForStart();
         float tgtleftStickY = 0;
         while (opModeIsActive()) {
