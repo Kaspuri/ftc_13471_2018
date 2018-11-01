@@ -96,7 +96,7 @@ public class MainOpMode extends LinearOpMode {
 
             //Driving the Robot
 
-            tgtleftStickY = this.gamepad1.left_stick_y  ;
+            tgtleftStickY = -this.gamepad1.left_stick_y;
             tgtleftStickX = this.gamepad1.left_stick_x;
 
 
@@ -138,7 +138,7 @@ public class MainOpMode extends LinearOpMode {
             //tgtTopMotorPower = (tgtrightStickY2);
 
 
-            botArmMotor.setPower(tgtBotMotorPower/3);
+            botArmMotor.setPower(tgtBotMotorPower/1.5);
             //topArmMotor.setPower(tgtTopMotorPower/3);
 
             //---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
