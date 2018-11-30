@@ -46,11 +46,11 @@ public class MainOpMode extends LinearOpMode {
     DcMotor leftmotor;
     DcMotor rightmotor;
 
-    DcMotor botArmMotor;
+    //DcMotor botArmMotor;
     //DcMotor topArmMotor;
 
-    CRServo crservo1;
-    CRServo crservo2;
+    //CRServo crservo1;
+    //CRServo crservo2;
 
 
     @Override
@@ -58,18 +58,18 @@ public class MainOpMode extends LinearOpMode {
         leftmotor = hardwareMap.dcMotor.get("leftmotor");
         rightmotor = hardwareMap.dcMotor.get("rightmotor");
 
-        botArmMotor = hardwareMap.dcMotor.get("armmotor");
-        //topArmMotor = hardwareMap.dcMotor.get("elbowmotor");
+       // botArmMotor = hardwareMap.dcMotor.get("armmotor");
+      //  topArmMotor = hardwareMap.dcMotor.get("elbowmotor");
 
-        crservo1 = hardwareMap.crservo.get("crservo1");
-        crservo2 = hardwareMap.crservo.get("crservo2");
+        //crservo1 = hardwareMap.crservo.get("crservo1");
+        //crservo2 = hardwareMap.crservo.get("crservo2");
         //
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
 
-        crservo1.setDirection(DcMotorSimple.Direction.FORWARD);
-        crservo2.setDirection(DcMotorSimple.Direction.FORWARD);
+        //crservo1.setDirection(DcMotorSimple.Direction.FORWARD);
+        //crservo2.setDirection(DcMotorSimple.Direction.FORWARD);
         // Wait for the g
 
         // run until the end of the match (driver presses STOP)
@@ -108,7 +108,7 @@ public class MainOpMode extends LinearOpMode {
             rightmotor.setPower(tgtRightMotorPower);
 
             //---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
-
+/**
             //control the sweeper
 
             //move stuff inwards
@@ -140,16 +140,16 @@ public class MainOpMode extends LinearOpMode {
 
             botArmMotor.setPower(tgtBotMotorPower/1.5);
             //topArmMotor.setPower(tgtTopMotorPower/3);
-
+**/
             //---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---
 
             //telemetry
 
             telemetry.addData("Left Motor Power", leftmotor.getPower());
             telemetry.addData("Right Motor Power", rightmotor.getPower());
-            telemetry.addData("CRS1 Power", crservo1.getPower());
-            telemetry.addData("CRS2 Power", crservo2.getPower());
-            telemetry.addData("Arm Motor Power", botArmMotor.getPower());
+            //telemetry.addData("CRS1 Power", crservo1.getPower());
+            //telemetry.addData("CRS2 Power", crservo2.getPower());
+            //telemetry.addData("Arm Motor Power", botArmMotor.getPower());
             //telemetry.addData("Elbow Motor Power", topArmMotor.getPower());
             telemetry.addData("Status", "Running");
             telemetry.update();
